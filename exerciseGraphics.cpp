@@ -141,13 +141,13 @@ void drawScene() {
 	glPushMatrix();
 	glColor3f(1, 0, 0);
 	glTranslatef(x, y, -5.);
+	//glPopMatrix();
 	glRotatef(angle, 0., 0., 1.);
+	//glPopMatrix();
 	glScalef(scale, scale, scale);
 	drawTriangle();
 	glPopMatrix();
 
-
-	
 	/********************************************************************************/
 	glutSwapBuffers();
 	glFlush();
