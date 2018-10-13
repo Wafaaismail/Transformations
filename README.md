@@ -2,6 +2,8 @@
 
 This Exercise describe openGL with C++ Transformation (translation ,Rotation,Scale) ,Color and PUSH and POP Operations .
 
+![](gif.gif)
+
  
 # Color 
 use built in function 
@@ -34,3 +36,10 @@ If we were to call glScalef(2.0f, 1.0f, 1.0f) instead, we would double its size 
 # push & pop
 There are two new and important functions used in this code: glPushMatrix() and glPopMatrix(). We use them to save and restore the state of our shape. 
 glPushMatrix saves its state, and glPopMatrix restores .
+
+we use processSpecialKeys function to conrol shape motion 
+this is a built in function contain some special keys (keyboard) .
+
+use arrows for moving up ,down ,right ,left 
+use home and end for rotation 
+use page up ,down for scaling
