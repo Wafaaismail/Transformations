@@ -1,6 +1,3 @@
-// exerciseGraphics.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 
 #include <iostream>
@@ -19,8 +16,8 @@ using namespace std;
 int screenx = 500;
 int screeny = 500;
 
-float step = 0.1f;      
-float angle = 30.f;		 
+float step = 0.1f;
+float angle = 30.f;
 float scale = 1.0f;
 float x = 0.;
 float y = 0.;
@@ -31,6 +28,7 @@ void handleResize(int w, int h);
 void handleKeypress(unsigned char key, int x, int y);
 void processSpecialKeys(int key, int mx, int my);
 void drawTriangle();
+void drawTriangle2();
 void drawScene();
 /*****************************************************************************************************/
 
@@ -125,33 +123,49 @@ void processSpecialKeys(int key, int mx, int my) {
 
 void drawTriangle() {
 	glBegin(GL_TRIANGLES);
-	glVertex3f(1.f, -1.f, -5.0f);
-	glVertex3f(.5f, 1.f, -5.0f);
-	glVertex3f(-1.f, -1.f, -5.0f);
+	glVertex3f(0.5f, 1.f, -3.0f);
+	glVertex3f(0.f, 0.f, -3.0f);
+	glVertex3f(0.f, 1.f, -3.0f);
 	glEnd();
 }
+
+void drawTriangle2() {
+	glBegin(GL_TRIANGLES);
+	glVertex3f(0.5f, 1.f, -3.0f);
+	glVertex3f(0.f, 0.f, -3.0f);
+	glVertex3f(0.f, 1.f, -3.0f);
+	glEnd();
+}
+
+
 
 void drawScene() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW); //Switch to the drawing perspective
 	glLoadIdentity(); //Reset the drawing perspective
-					  /*******************************************************************************/
+	/*******************************************************************************/
 
 	glPushMatrix();
+
 	glColor3f(1, 0, 0);
-	glTranslatef(x, y, -5.);
-	//glPopMatrix();
-	glRotatef(angle, 0., 0., 1.);
-	//glPopMatrix();
+	glTranslatef(x, y, -3.); 
 	glScalef(scale, scale, scale);
 	drawTriangle();
+
 	glPopMatrix();
+
+	glPushMatrix();
+
+	glColor3f(0, 1, 0);
+	glRotatef(angle, 0., 0., 1.);
+	drawTriangle2();
+
+	glPopMatrix();
+
 
 	/********************************************************************************/
 	glutSwapBuffers();
 	glFlush();
 
 }
-
-
